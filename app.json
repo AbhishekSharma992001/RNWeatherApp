@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "RNProject",
+    "name": "Weather - Today",
     "slug": "RNProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,6 +18,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.abhi.Weather",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +26,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7b95b5ef-b5e4-4ea8-8565-2bab7748cd69"
+      }
     }
   }
 }
