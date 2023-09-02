@@ -4,7 +4,7 @@ import React from 'react'
 const SafeAreaView = ({Component}) => {
   return (
     <View>
-      {Platform.OS === "android"? <StatusBar backgroundColor={"black"}/> : null}
+      {Platform.OS === "android"? <StatusBar backgroundColor={"#202021"}/> : null}
       <Component/>
     </View>
   )

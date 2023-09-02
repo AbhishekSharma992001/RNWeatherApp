@@ -48,18 +48,17 @@ const Main = () => {
             1: {
               date:tommDate,
               
-              day : {avgtemp_c: tommAvgTemp, avghumidity: tommHumid, condition: { text: tommTxt, icon: tommIcon }, },
+              day : {uv: tommUv, avgtemp_c: tommAvgTemp, maxwind_kph: tommWind, avghumidity: tommHumid, daily_chance_of_rain: tommRain, condition: {icon: tommIcon }, },
               
             },
             2: {
               date: dayAfTommDate,
               
-              day : {avgtemp_c: dayAfTommAvgTemp, avghumidity: dayAfTommHumid, condition: { text: dayAfTommTxt, icon: dayAfTommIcon },}          
+              day : {uv: dayAfTommUv, avgtemp_c: dayAfTommAvgTemp, maxwind_kph: dayAfTommWind, avghumidity: dayAfTommHumid, daily_chance_of_rain: dayAfTommRain, condition: { icon: dayAfTommIcon },}          
             },
           },
         },
       } = data;
-      console.log(tommTxt);
       return {
         name,
         country,
@@ -80,13 +79,17 @@ const Main = () => {
         tommDate,
         tommAvgTemp,
         tommHumid,
-        tommTxt,
         tommIcon,
+        tommRain,
+        tommUv,
         dayAfTommDate,
         dayAfTommAvgTemp,
         dayAfTommHumid,
-        dayAfTommTxt,
-        dayAfTommIcon
+        tommWind,
+        dayAfTommIcon,
+        dayAfTommWind,
+        dayAfTommRain,
+        dayAfTommUv
       };
     } catch (error) {
       console.error("Error fetching weather data:", error);
@@ -106,7 +109,7 @@ const Main = () => {
 
   
   return (
-    <View>
+    <View style={styles.main}>
       <View style={styles.container}>
         <View>
           <TextInput
@@ -167,11 +170,16 @@ const Main = () => {
 const screenWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
+  main : {
+    gap: 30
+  },
   container: {
-    backgroundColor: "black",
+    backgroundColor: "#202021",
     height: 250,
     justifyContent: "space-around",
     alignItems: "center",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
   },
   weatherRegion: {
     margin: 10,
